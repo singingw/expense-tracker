@@ -1,0 +1,50 @@
+[
+  {
+    "userName": "廣志",
+    "name": "午餐",
+    "date": "2019-4-23",
+    "amount": 60,
+    "categoryName": "餐飲食品",
+    "note": "中華冷麵"
+  },
+  {
+    "userName": "廣志",
+    "name": "晚餐",
+    "date": "2019-4-23",
+    "amount": 60,
+    "categoryName": "餐飲食品",
+    "note": "烤雞串、啤酒"
+  },
+  {
+    "userName": "廣志",
+    "name": "捷運",
+    "date": "2019-4-23",
+    "amount": 120,
+    "categoryName": "交通出行",
+    "note": ""
+  },
+  {
+    "userName": "廣志",
+    "name": "租金",
+    "date": "2015-4-01",
+    "amount": 25000,
+    "categoryName": "家居物業",
+    "note": ""
+  },
+  {
+    "userName": "まっちゃ",
+    "name": "六月團購",
+    "date": "2022-6-16",
+    "amount": 1530,
+    "categoryName": "餐飲食品",
+    "note": "七子鐵盒餅乾、和服少女、茶碗"
+  },
+  {
+    "userName": "まっちゃ",
+    "name": "六月團購",
+    "date": "2022-6-16",
+    "amount": 30,
+    "categoryName": "交通出行",
+    "note": "面交->公車來回"
+  }
+]
