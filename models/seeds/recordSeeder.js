@@ -31,6 +31,7 @@ db.once('open', () => {
   }))
     .then(() => {
       console.log('recordSeeder.js is done')
+      process.exit()
     })
 })
 
