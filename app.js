@@ -1,8 +1,8 @@
 const express = require('express')
 const session = require('express-session')
-const usePassport = require('./config/passport')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const flash = require('connect-flash')
 //判別開發環境
 if (process.env.NODE_ENV !== 'production') {
@@ -10,11 +10,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const routes = require('./routes')
+const usePassport = require('./config/passport')
 require("./config/mongoose")
-
-const app = express()
 const PORT = process.env.PORT
+const app = express()
 
+app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(session({
@@ -22,7 +24,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
-app.use(bodyParser.urlencoded({ extended: true }))
 
 usePassport(app)
 app.use(flash())
