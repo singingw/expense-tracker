@@ -1,9 +1,12 @@
 <div class="col-md-6 m-auto">
   <!-- Select category -->
   <form action="/" method="POST">
-    <select name="categorySelect" id="categorySelect" onchange="categorySelect.onchange()" class="form-control">
-      <option selected>類別</option>
-      <option value="全部">全部</option>
+    <select name="categorySelect" id="categorySelect" onchange="categorySelect.form.submit()" class="form-control">
+      {{#if categorySelect}}
+      <option value="{{categorySelect}}" selected>{{categorySelect}}</option>
+      {{else}}
+      <option value="全部" selected>全部</option>
+      {{/if}}
       {{#each categories}}
       <option value="{{this.name}}">{{this.name}}</option>
       {{/each}}
