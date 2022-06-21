@@ -7,7 +7,9 @@
 * 可新增、編輯、刪除支出
 
 ## 頁面呈現
-
+![image](https://github.com/singingw/expense-tracker/blob/main/%E5%9C%96%E7%89%87/%E7%99%BB%E5%85%A5.PNG)
+![image](https://github.com/singingw/expense-tracker/blob/main/%E5%9C%96%E7%89%87/%E8%A8%BB%E5%86%8A.PNG)
+![image](https://github.com/singingw/expense-tracker/blob/main/%E5%9C%96%E7%89%87/%E7%B8%BD%E6%94%AF%E5%87%BA.PNG)
 
 ## 安裝與執行步驟
 1.  在終端機輸入指令 Clone 此專案至本機電腦
@@ -22,10 +24,7 @@ cd expense-tracker
 ```js
 npm install
 ```
-4.  process.env.MONGODB_URI 環境變數的設定
-```js
-set MONGODB_URI = < 連線 mongoDB 的 URI > //密碼、資料庫名稱要自行更改
-```
+4.  請參閱 .env.example 創建您自己的環境變數
 5.  運行種子數據
 ```js
 node models/seeds/categorySeeder.js
@@ -37,14 +36,14 @@ node models/seeds/recordSeeder.js
 npm run dev
 ```
 7.  使用瀏覽器開啟：http://localhost:3000 即可瀏覽本專案
-8.  目前提供兩組測試用帳號給使用者，可以登入並看到預設的餐廳資訊。
+8.  目前提供兩組測試用帳號給使用者，可以登入並看到預設的支出資訊。
 ```js
 name: 廣志
 email: user1@example.com
 password: 12345678
 ```
 ```js
-name: 小新
+name: まっちゃ
 email: matcha@example.com
 password: 12345678
 ```
