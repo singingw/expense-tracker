@@ -1,4 +1,5 @@
 const express = require('express')
+const dayjs = require('dayjs')
 const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
@@ -18,12 +19,7 @@ router.get('/', async (req, res, next) => {
       const categoryId = record.categoryId
       record.icon = categories.filter(category => categoryId.equals(category._id))[0].icon
       //取出時間
-      let createYear = record.date.getYear() + 1900
-      createYear = createYear.toString()
-      let createMonth = record.date.getMonth() + 1
-      createMonth = createMonth.toString()
-      let createDate = record.date.getDate().toString()
-      record.date = createYear + "/" + createMonth + "/" + createDate
+      record.date = dayjs(record.date).format("YYYY/MM/DD");
     })
     return res.render('index', {
       records: records,
@@ -31,7 +27,7 @@ router.get('/', async (req, res, next) => {
       totalAmount
     })
   } catch (error) {
-    next(new Error('some error'))
+    next(error)
   }
 })
 router.post('/', async (req, res, next) => {
@@ -51,12 +47,7 @@ router.post('/', async (req, res, next) => {
     filterRecord.forEach(record => {
       record.icon = categories.filter(category => categoryId.equals(category._id))[0].icon
       //取出時間
-      let createYear = record.date.getYear() + 1900
-      createYear = createYear.toString()
-      let createMonth = record.date.getMonth() + 1
-      createMonth = createMonth.toString()
-      let createDate = record.date.getDate().toString()
-      record.date = createYear + "/" + createMonth + "/" + createDate
+      record.date = dayjs(record.date).format("YYYY/MM/DD");
       totalAmount += record.amount
     })
     return res.render('index', {
@@ -66,7 +57,7 @@ router.post('/', async (req, res, next) => {
       categorySelect
     })
   } catch (error) {
-    next(new Error('some error'))
+    next(error)
   }
 })
 
