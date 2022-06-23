@@ -34,15 +34,14 @@ router.post('/', async (req, res, next) => {
   try {
     //找出使用者資料
     const userId = req.user._id
-    const records = await Record.find({ userId }).lean()
-    //首頁顯示資料
     const categories = await Category.find().lean()
     const { categorySelect } = req.body
-    let filterRecord = records
-    let totalAmount = 0
     //篩選類別
     const categoryId = categories.filter(category => category.name === categorySelect)[0]._id
-    filterRecord = records.filter(record => record.categoryId.equals(categoryId))
+    const records = await Record.find({ categoryId,userId }).lean()
+    //首頁顯示資料
+    let filterRecord = records
+    let totalAmount = 0
 
     filterRecord.forEach(record => {
       record.icon = categories.filter(category => categoryId.equals(category._id))[0].icon

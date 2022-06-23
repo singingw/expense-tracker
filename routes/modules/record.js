@@ -12,8 +12,8 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res, next) => {
   try {
     //取出資料
-    req.body.userId = req.user._id
-    const { name, date, category, amount, note, userId } = req.body
+    const userId = req.user._id
+    const { name, date, category, amount, note } = req.body
     const categories = await Category.findOne({ name: category }).lean()
     const categoryId = categories._id
     //新增一筆支出
@@ -54,8 +54,8 @@ router.put('/:records_id', async (req, res, next) => {
   try {
     //取出資料
     const _id = req.params.records_id
-    req.body.userId = req.user._id
-    const { name, date, category, amount, note, userId } = req.body
+    const userId = req.user._id
+    const { name, date, category, amount, note} = req.body
     const categories = await Category.findOne({ name: category }).lean()
     const categoryId = categories._id
     //更新
